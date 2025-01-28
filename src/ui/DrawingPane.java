@@ -23,6 +23,6 @@ public class DrawingPane extends JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         Stroke stroke = new BasicStroke(1, BasicStroke.CAP_BUTT,BasicStroke.JOIN_MITER);
         g2d.setStroke(stroke);
-
+        g2d.drawLine(0,0,100,100);
     }
 }
