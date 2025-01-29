@@ -32,5 +32,6 @@ public class DrawingPane extends JPanel {
         g2d.drawLine(0,560,2000,560);
         g2d.drawLine(0,640,2000,640);
         g2d.drawLine(0,720,2000,720);
+        g2d.drawString("Start",100,100 );
     }
 }
