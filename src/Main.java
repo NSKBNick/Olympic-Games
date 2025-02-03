@@ -14,6 +14,7 @@ public class Main {
                 dim.height / 2 - frame.getSize().height / 2
         );
         frame.setVisible(true);
+
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }
