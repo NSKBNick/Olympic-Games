@@ -2,12 +2,14 @@ package ui;
 
 
 
+import Athlete.Runner;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
 
 public class DrawingPane extends JPanel {
-
+ Runner runner = new Runner();
     public DrawingPane(){
         super();
         setLayout(new BorderLayout());
@@ -26,6 +28,7 @@ public class DrawingPane extends JPanel {
         for(int y = 125; y <= 875; y +=125) {
             g2d.draw(new Line2D.Double(0, scaleY(y), scaleX(900), scaleY(y)));
         }
+        runner.drawRunner(g2d,this);
         g2d.drawString("Start",0,0 );
     }
     public int scaleX(int x){

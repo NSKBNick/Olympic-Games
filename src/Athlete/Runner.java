@@ -1,9 +1,21 @@
 package Athlete;
 
+import ui.DrawingPane;
+
+import java.awt.*;
+
 public class Runner {
-    static int x_coordinate = 0;
-    static int y_coordinate = 120;
+    /** the x coordinate of the lower left corner */
+    int x = 0;
+    /** the y coordinate of the lower left corner */
+    int y = 60;
+    int width = 10;
+    int height = 10;
     public Runner(){
 
+    }
+
+    public void drawRunner(Graphics2D g2d,DrawingPane pane){
+        g2d.drawRect(pane.scaleX(x),pane.scaleY(y),pane.scaleX(width),pane.scaleY(height));
     }
 }
