@@ -13,6 +13,11 @@ public class DrawingPane extends JPanel {
     public DrawingPane(){
         super();
         setLayout(new BorderLayout());
+        runner.speed.reset();
+    }
+
+    public void setEventHandler(JFrame frame) {
+        frame.addKeyListener(new EventHandler(runner, this));
     }
 
     @Override
