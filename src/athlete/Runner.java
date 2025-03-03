@@ -1,7 +1,7 @@
-package Athlete;
+package athlete;
 
 import movement.Speed;
-import ui.DrawingPane;
+import ui.Stadium;
 
 import java.awt.*;
 
@@ -14,16 +14,26 @@ public class Runner {
     int width = 10;
     int height = 10;
     public Speed speed = new Speed();
+    boolean started = false;
     public Runner(){
 
     }
 
-    public void drawRunner(Graphics2D g2d,DrawingPane pane){
+    public void drawRunner(Graphics2D g2d, Stadium pane){
         updateXCoordinate();
         System.out.println(x);
         g2d.drawRect(pane.scaleX(x),pane.scaleY(y),pane.scaleX(width),pane.scaleY(height));
     }
     private void updateXCoordinate(){
         x += (int)(speed.getClicks() * SPEED_FACTOR);
+    }
+
+    public void start(){
+        this.started = true;
+    }
+
+
+    public boolean canRun(){
+        return started && x + width < 950;
     }
 }

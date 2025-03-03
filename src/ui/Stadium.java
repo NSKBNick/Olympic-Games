@@ -2,15 +2,19 @@ package ui;
 
 
 
-import Athlete.Runner;
+import athlete.Runner;
+import movement.EventHandler;
+import stage.Start;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
 
-public class DrawingPane extends JPanel {
+public class Stadium extends JPanel {
  Runner runner = new Runner();
-    public DrawingPane(){
+ Start start = new Start(this);
+
+    public Stadium(){
         super();
         setLayout(new BorderLayout());
         runner.speed.reset();
@@ -34,7 +38,11 @@ public class DrawingPane extends JPanel {
             g2d.draw(new Line2D.Double(0, scaleY(y), scaleX(900), scaleY(y)));
         }
         runner.drawRunner(g2d,this);
-        g2d.drawString("Start",0,0 );
+        if(start.getDisplayText() != null) {
+            g.setFont(new Font("Arial", Font.PLAIN, 100));
+            g.setColor(Color.GREEN);
+            g2d.drawString(start.getDisplayText(), scaleX(450), scaleY(500));
+        }
     }
     public int scaleX(int x){
         int panelWidth = getWidth();
@@ -45,5 +53,14 @@ public class DrawingPane extends JPanel {
         int panelHeight = getHeight();
         //System.out.println("Height:"+panelHeight);
         return y * panelHeight / 1000;
+    }
+
+    public void start(){
+        Thread thread = new Thread(start);
+        thread.start();
+    }
+    public void startRunning(){
+        runner.start();
+        //start Timer
     }
 }
