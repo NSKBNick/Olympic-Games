@@ -2,6 +2,7 @@ package movement;
 
 public class Speed {
     int clicks = 0;
+    public static final double SPEED_FACTOR = 10.5;
 
     public Speed(){
     }
@@ -17,5 +18,8 @@ public class Speed {
        int result = clicks;
         reset();
         return result;
+    }
+    public int getIncrement(){
+        return (int)(getClicks() * SPEED_FACTOR);
     }
 }

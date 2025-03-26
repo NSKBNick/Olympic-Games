@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
 public class EventHandler implements KeyListener{
     int RUN_CODE = 32;
     int START_CODE = 10;
+    boolean initiated = false;
     Runner runner;
     boolean keyReleased = true;
 
@@ -23,8 +24,9 @@ public class EventHandler implements KeyListener{
             runner.speed.increaseClicks();
             stadium.repaint();
             keyReleased = false;
-        }  else if (e.getKeyCode() == START_CODE) {
+        }  else if (e.getKeyCode() == START_CODE && !initiated) {
             stadium.start();
+            initiated = true;
          }
     }
 

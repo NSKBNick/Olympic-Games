@@ -13,8 +13,8 @@ import java.awt.geom.Line2D;
 public class Stadium extends JPanel {
     Runner runner = new Runner();
     Start start = new Start(this);
-    long startingTime = 0;
-    long finishingTime = 0;
+    double startingTime = 0;
+    double finishingTime = 0;
 
     public Stadium() {
         super();
@@ -37,7 +37,7 @@ public class Stadium extends JPanel {
         Stroke stroke = new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER);
         g2d.setStroke(stroke);
         for (int y = 125; y <= 875; y += 125) {
-            g2d.draw(new Line2D.Double(0, scaleY(y), scaleX(900), scaleY(y)));
+            g2d.draw(new Line2D.Double(0, scaleY(y), scaleX(950), scaleY(y)));
         }
         runner.drawRunner(g2d, this);
         if (start.getDisplayText() != null) {
@@ -59,10 +59,10 @@ public class Stadium extends JPanel {
         }
     }
 
-    private void drawTime(Graphics g, Graphics2D g2d, long time) {
+    private void drawTime(Graphics g, Graphics2D g2d, double time) {
         g.setFont(new Font("Arial", Font.PLAIN, 50));
         g.setColor(Color.GREEN);
-        g2d.drawString(Long.toString(time), scaleX(450), scaleY(100));
+        g2d.drawString(Double.toString(time), scaleX(450), scaleY(100));
 
     }
 

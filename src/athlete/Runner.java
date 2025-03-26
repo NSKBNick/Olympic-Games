@@ -6,11 +6,11 @@ import ui.Stadium;
 import java.awt.*;
 
 public class Runner {
-    public static final int SPEED_FACTOR = 10;
+
     /** the x coordinate of the lower left corner */
     int x = 0;
     /** the y coordinate of the lower left corner */
-    int y = 60;
+    int y = 435;
     int width = 10;
     int height = 10;
     public Speed speed = new Speed();
@@ -25,13 +25,12 @@ public class Runner {
         g2d.drawRect(pane.scaleX(x),pane.scaleY(y),pane.scaleX(width),pane.scaleY(height));
     }
     private void updateXCoordinate(){
-        x += (int)(speed.getClicks() * SPEED_FACTOR);
+        x += speed.getIncrement();
     }
 
     public void start(){
-        this.started = true;
+        started = true;
     }
-
 
     public boolean canRun(){
         return started && x + width < 950;
